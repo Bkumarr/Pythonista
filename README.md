@@ -1,5 +1,5 @@
 # Simple Project To Demonstrate Use of Modern Javascript
-##This is a simple project for you to practice using Visual Studio Code to
+## This is a simple project for you to practice using Visual Studio Code to
 
 - Clone a repository
 - Add the node package
