@@ -1,0 +1,19 @@
+{
+  "name": "javascript-nodejs",
+  "version": "1.0.0",
+  "repository": "https://github.com/Bkumarr/pythonista.git",
+  "description": "Visualisation- lesson stackoverflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server --files **/*.js --no-notify --no-online"
+  },
+  "keywords": [],
+  "author": "Balakumar",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "systemjs": "^0.20.18",
+    "systemjs-plugin-babel": "0.0.25"
+  }
+}
