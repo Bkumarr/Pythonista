@@ -1,7 +1,8 @@
 # Simple Project To Demonstrate Use of Modern Javascript
-## This is a simple project for you to practice using Visual Studio Code to
+## This is a simple project to deploy cloud agnostic web framework on Visual Studio Code
 
-- Clone a repository
-- Add the node package
-- Use the node_modules package to create a simple console application
-- Commit and pushing the code to github
+- To create robust visual designing using frontend technologies without exposure to interfacing. 
+- Adding features to existing application stack for rapid prototyping with server side rendering.
+- Use TypeScript for building javascript application with more features of static typed programming.
+- Clean code
+- Fullstack for Modern web development with display of portfolio-project. 
