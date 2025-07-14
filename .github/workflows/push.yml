@@ -1,0 +1,51 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Install jq
+      run: sudo apt-get install jq
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    - name: Start Server
+      run: |
+        curl -X 'PATCH' \
+          "https://api.clearscape.teradata.com/environments/${{ secrets.ENV_NAME }}" \
+          -H 'accept: application/json' \
+          -H "Authorization: Bearer ${{ secrets.API_KEY }}" \
+          -H 'Content-Type: application/json' \
+          -d '{
+              "operation": "start"
+              }'
+    - name: Create DB
+      run: |
+        curl -X 'POST' \
+        "https://${{ secrets.ENV_HOST}}:8443/qs/systems/local/queries" \
+         -H "Authorization: Basic ${{ secrets.ENV_AUTH }}" \
+         -H "Accept: application/vnd.com.teradata.rest-v1.0+json" \
+         -H "Content-Type: application/json" \
+         -d '{
+        "query": "CREATE DATABASE teddy_retailers_ci AS PERMANENT = 110e6;",
+            "format": "array",
+            "includeColumns": true
+        }'
+
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello ${{ inputs.name }}"
